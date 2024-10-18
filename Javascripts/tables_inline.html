@@ -5,19 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .class_first {
-            border: 1px solid blue;
-        }
-        th.class_seond {
-            border: 1px solid red;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/commons.css">
 </head>
 
 <body>
     <div>
-        <h2>inline first</h2>
+        <h2 id="click_popup">inline first</h2>
         <table class="class_first">
             <tr>
                 <th class="class_first">Month</th>
@@ -34,7 +27,7 @@
         </table>
     </div>
     <div>
-        <h2 style="border: 1px solid red;">inline second</h2>
+        <h2 style="border: 1px solid red;" onclick="showAlert()">inline second</h2>
         <table style="border:1px solid salmon">
             <tr>
                 <th class="class_seond">Month</th>
@@ -51,5 +44,15 @@
         </table>
     </div>
 </body>
+<script>
+    function showAlert() {
+        alert("second 임시 팝업");
+    }
+
+    let button = document.querySelector("#click_popup");
+    button.onclick = function () {
+        alert("first 임시 팝업");
+    }
+</script>
 
 </html>
