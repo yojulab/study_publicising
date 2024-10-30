@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/commons.css">
+</head>
+
+<body>
+    <div>
+        <h2 id="click_popup">inline first</h2>
+        <h2 id="click_innerHTML">innerHTML first</h2>
+        <div id="target_innerHTML"></div>
+        <table class="class_first">
+            <tr>
+                <th class="class_first">Month</th>
+                <th class="class_first">Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h2 style="border: 1px solid red;" onclick="showAlert()">inline second</h2>
+        <table style="border:1px solid salmon">
+            <tr>
+                <th class="class_seond">Month</th>
+                <th class="class_seond">Savings</th>
+            </tr>
+            <tr>
+                <td class="class_seond">January</td>
+                <td class="class_seond">$100</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    // 대상 선택 : #click_innerHTML
+    let click_inner_object = document.querySelector('#click_innerHTML')
+    // 계속 본다
+    click_inner_object.onclick = function () {
+        // 해당하는 동작
+        let target_inner_object = document.querySelector('#target_innerHTML')
+        // target_inner_object.innerHTML = 'Current Position! Sanghunoh'
+        let scrollposition_value = document.documentElement.scrollTop
+        target_inner_object.innerHTML = `Current Position! Sanghunoh ${scrollposition_value}`
+    }
+
+    function showAlert() {
+        alert("second 임시 팝업");
+    }
+
+    let button = document.querySelector("#click_popup");
+    button.onclick = function () {
+        alert("first 임시 팝업");
+    }
+</script>
+
+</html>
